@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mritunjay Kumar - Software Engineer and Full Stack Developer Portfolio" />
+    <title>Mritunjay Kumar | Developer Portfolio</title>
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        
+         :root {
+            --bg: #0b1020;
+            --card: #121a2e;
+            --text: #f3f4f6;
+            --muted: #a5b0c5;
+            --accent: #8b5cf6;
+            --accent2: #22d3ee;
+            --border: #26324b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+        
+        .accent {
+            color: var(--accent2);
+        }
+        
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+        
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        /* ===== NAVBAR ===== */
+        
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        nav {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            font-size: 1.35rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent2);
+        }
+        
+        .menu-btn {
+            display: none;
+            border: 0;
+            color: var(--text);
+            background: transparent;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        /* ===== HERO ===== */
+        
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(ellipse at 85% 25%, rgba(139, 92, 246, 0.17), transparent 45%);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .eyebrow {
+            color: var(--accent2);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.6rem, 7vw, 4.8rem);
+            line-height: 1.12;
+            margin: 18px 0;
+        }
+        
+        .hero h2 {
+            font-size: clamp(1.15rem, 3vw, 1.7rem);
+            color: var(--muted);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            max-width: 650px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 11px 22px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            font-weight: bold;
+            transition: 0.25s;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--text);
+        }
+        /* ===== COMMON CARDS ===== */
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+        
+        .card {
+            background: var(--card);
+            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        
+        .card p,
+        .card li {
+            color: var(--muted);
+        }
+        
+        .card ul {
+            padding-left: 20px;
+            margin: 12px 0;
+        }
+        
+        .tech {
+            color: var(--accent2) !important;
+            font-size: 0.88rem;
+            margin: 12px 0;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+        
+        .project-links a {
+            color: var(--accent2);
+            font-weight: bold;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+        /* ===== ABOUT ===== */
+        
+        .about-text {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+        /* ===== SKILLS ===== */
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+        }
+        
+        .skill {
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--card);
+            transition: 0.2s;
+        }
+        
+        .skill:hover {
+            border-color: var(--accent2);
+            color: var(--accent2);
+        }
+        /* ===== EDUCATION ===== */
+        
+        .education-card {
+            margin-bottom: 18px;
+        }
+        
+        .education-card .year {
+            color: var(--accent2);
+            font-size: 0.9rem;
+        }
+        /* ===== CONTACT ===== */
+        
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 35px;
+            border-radius: 14px;
+        }
+        
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+        
+        .contact-links a {
+            color: var(--accent2);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+        /* ===== BACK TO TOP ===== */
+        
+        #topBtn {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: none;
+            z-index: 90;
+        }
+        /* ===== RESPONSIVE DESIGN ===== */
+        
+        @media (max-width: 700px) {
+            .menu-btn {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                width: 100%;
+                padding: 22px 5%;
+                background: var(--bg);
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 65px 0;
+            }
+            .hero {
+                min-height: 78vh;
+            }
+            .contact-box {
+                padding: 25px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Mritunjay<span class="accent">.</span></a>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <span class="eyebrow">Welcome to my portfolio</span>
+
+                <h1>Hi, I'm <span class="accent">Mritunjay Kumar</span></h1>
+
+                <h2>Software Engineer | Full Stack Developer</h2>
+
+                <p>
+                    I build responsive web applications and Python-based AI solutions. I enjoy solving problems, developing useful products, and learning new technologies to create better digital experiences.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="btn btn-primary">Explore My Projects</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About <span class="accent">Me</span></h2>
+
+                <p class="about-text">
+                    I am a Computer Science Engineering graduate with experience in full-stack web development and Python-based AI applications. My work includes task management platforms, NLP-based resume screening, skill matching, API integration, and database operations.
+                    I am looking for opportunities as an entry-level Software Developer or Full Stack Developer where I can contribute to practical software solutions and continue growing as an engineer.
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
+
+                <div class="skills">
+                    <span class="skill">HTML5</span>
+                    <span class="skill">CSS3</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Python</span>
+                    <span class="skill">Flask API</span>
+                    <span class="skill">MySQL</span>
+                    <span class="skill">Natural Language Processing</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">VS Code</span>
+                    <span class="skill">Google Colab</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My <span class="accent">Projects</span></h2>
+
+                <div class="grid">
+
+                    <article class="card">
+                        <h3>TaskFlow</h3>
+                        <p>
+                            A full-stack, AI-assisted task management platform designed to organize, track, and manage tasks more efficiently.
+                        </p>
+
+                        <p class="tech">
+                            HTML · CSS · JavaScript · Flask · MySQL
+                        </p>
+
+                        <ul>
+                            <li>Task organization and tracking.</li>
+                            <li>AI-assisted planning and productivity features.</li>
+                            <li>Responsive interface with backend API integration.</li>
+                        </ul>
+
+                        <div class="project-links">
+                            <!-- Replace # with your actual project URLs -->
+                            <a href="#" class="placeholder-link">GitHub ↗</a>
+                            <a href="#" class="placeholder-link">Live Demo ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>AI-Powered Resume and Ranking System</h3>
+                        <p>
+                            A resume screening application that uses NLP techniques to extract candidate skills and compare them with job requirements.
+                        </p>
+
+                        <p class="tech">
+                            Python · NLP · JavaScript · Google Colab
+                        </p>
+
+                        <ul>
+                            <li>Resume skill extraction and matching.</li>
+                            <li>Candidate ranking based on relevance scores.</li>
+                            <li>Automation support for recruitment workflows.</li>
+                        </ul>
+
+                        <div class="project-links">
+                            <!-- Replace # with your actual GitHub URL -->
+                            <a href="#" class="placeholder-link">GitHub ↗</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education">
+            <div class="container">
+                <h2 class="section-title">Education & <span class="accent">Certifications</span></h2>
+
+                <div class="grid">
+
+                    <article class="card education-card">
+                        <span class="year">2025–2026</span>
+                        <h3>Software Development Engineering with Applied AI</h3>
+                        <p>Vishlesan i-Hub, IIT Patna</p>
+                        <p>CGPA: 7.18</p>
+                    </article>
+
+                    <article class="card education-card">
+                        <span class="year">2022–2026</span>
+                        <h3>Bachelor of Engineering in Computer Science</h3>
+                        <p>Sengunthar Engineering College, Tamil Nadu</p>
+                        <p>CGPA: 7.67/10</p>
+                    </article>
+
+                    <article class="card education-card">
+                        <span class="year">2020–2022</span>
+                        <h3>Higher Secondary Education (Class XII)</h3>
+                        <p>S.S 108 M.R.J.D Inter College, Bihar</p>
+                        <p>Percentage: 84.2%</p>
+                    </article>
+
+                    <article class="card education-card">
+                        <span class="year">2019–2020</span>
+                        <h3>Secondary Education (Class X)</h3>
+                        <p>B.N High School, Begusarai, Bihar</p>
+                        <p>Percentage: 80.4%</p>
+                    </article>
+
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <article class="card">
+                        <h3>Professional Certifications</h3>
+                        <ul>
+                            <li>Software Development Engineering with Applied AI — Vishlesan i-Hub, IIT Patna</li>
+                            <li>Full Stack Web Development — Alpha Tech</li>
+                            <li>AI: Transformative Learning — TechSaksham</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+
+                <div class="contact-box">
+                    <h3>Let's work together!</h3>
+                    <p>
+                        I am interested in software development and full-stack opportunities. Feel free to reach out.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="mailto:mritunjayrnp@gmail.com">Email Me</a>
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+
+                    <p style="margin-top: 22px; margin-bottom: 0;">
+                        Begusarai, Bihar, India
+                        <br /> +91-6206071720
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>
+                © <span id="year"></span> Mritunjay Kumar. Built with HTML, CSS & JavaScript.
+            </p>
+        </div>
+    </footer>
+
+    <button id="topBtn" aria-label="Back to top">↑</button>
+
+    <script>
+        // Mobile navigation
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            menuBtn.setAttribute("aria-expanded", isOpen);
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close the mobile menu after selecting a link
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.textContent = "☰";
+            });
+        });
+
+        // Back-to-top button
+        const topBtn = document.getElementById("topBtn");
+
+        window.addEventListener("scroll", () => {
+            topBtn.style.display = window.scrollY > 350 ? "block" : "none";
+        });
+
+        topBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Automatic copyright year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Prevent placeholder project links from navigating to "#"
+        document.querySelectorAll(".placeholder-link").forEach(link => {
+            link.addEventListener("click", event => {
+                if (link.getAttribute("href") === "#") {
+                    event.preventDefault();
+                    alert("Add your actual GitHub repository or live project URL here.");
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
